@@ -1,0 +1,30 @@
+{
+	"name": "mori-bag",
+	"version": "0.0.0",
+	"description": "Efficient immutable bags (multisets) made with mori",
+	"main": "lib.js",
+	"scripts": {
+		"test": "node test.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/j201/mori-bag.git"
+	},
+	"keywords": [
+		"bag",
+		"multiset",
+		"mori",
+		"immutable"
+	],
+	"dependencies" : {
+		"mori": "~0.2.6"
+	},
+	"devDependencies": {
+		"tape": "~2.12.3"
+	},
+	"author": "j201",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/j201/mori-bag/issues"
+	}
+}
