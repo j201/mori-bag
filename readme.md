@@ -53,6 +53,10 @@ If the element is present, removes all of it from the bag, otherwise doesn't cha
 
 Returns the number of times `element` is in `bag`.
 
+**set(bag, element, value)**
+
+Sets the number of times `element` is in `bag`.
+
 **has(bag, element)**
 
 Returns `true` is `element` is in `bag`, else `false`.
@@ -68,6 +72,18 @@ Returns the elements of `bag` as a JS array.
 **seq(bag)**
 
 Returns the elements of `bag` as a mori seq. This needs to be used first in order to use functions like `mori.reduce` on the bag, since mori's seqable conversion doesn't convert the bag to a seq correctly.
+
+**union(...bags)**
+
+Returns the multiset union of the bags (the number of times each element appears in the result is equal to the maximum number of times it appears in any of the arguments).
+
+**intersection(...bags)**
+
+Returns the multiset intersection of the bags (the number of times each element appears in the result is equal to the minimum number of times it appears in any of the arguments).
+
+**sum(...bags)**
+
+Returns the multiset sum of the bags (the number of times each element appears in the result is equal to the sum of the number of times it appears in the arguments).
 
 ##Licence
 

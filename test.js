@@ -62,3 +62,24 @@ tape('seq', function(t) {
 	t.ok(mori.equals(mori.sort(bag.seq(bag.bag([1, 1, 2]))), mori.list(1, 1, 2)));
 	t.end();
 });
+
+tape('set', function(t) {
+	t.equals(bag.get(bag.set(bag.bag(), 2, 4), 2), 4, "set an element value");
+	t.end();
+});
+
+tape('union', function(t) {
+	t.ok(mori.equals(mori.sort(bag.seq(bag.union(bag.bag([1, 1, 1, 2]), bag.bag([1, 1, 5, 5, 9]), bag.bag([5, 5, 1])))), mori.list(1, 1, 1, 2, 5, 5, 9)));
+	t.end();
+});
+
+tape('intersection', function(t) {
+	t.ok(mori.equals(mori.sort(bag.seq(bag.intersection(bag.bag([1, 1, 1, 2, 5]), bag.bag([1, 1, 5, 5, 2, 9]), bag.bag([5, 5, 1, 1])))), mori.list(1, 1, 5)));
+	t.end();
+});
+
+tape('sum', function(t) {
+	t.ok(mori.equals(mori.sort(bag.seq(bag.sum(bag.bag([1, 1, 1, 2]), bag.bag([1, 1, 5, 5, 9]), bag.bag([5, 5, 1])))), mori.list(1, 1, 1, 1, 1, 1, 2, 5, 5, 5, 5, 9)));
+	t.end();
+});
+

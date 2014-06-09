@@ -30,6 +30,8 @@ exports.get = function(bag, element) {
 	return mori.get(bag, element) || 0;
 };
 
+exports.set = mori.assoc;
+
 exports.has = mori.has_key;
 
 exports.count = function(bag) {
@@ -53,3 +55,23 @@ exports.seq = function(bag) {
 		return mori.concat(seq, mori.repeat(v, k));
 	}, mori.vector(), bag);
 };
+
+function binToVar(f) {
+	return function() {
+		return Array.prototype.reduce.call(arguments, f);
+	};
+}
+
+function combineMultiplicitiesWith(f) {
+	return binToVar(function(b1, b2) {
+		return mori.reduce(function(acc, key) {
+			return exports.set(acc, key, f(exports.get(b1, key), exports.get(b2, key)));
+		}, exports.bag(), mori.set(mori.concat(mori.keys(b1), mori.keys(b2))));
+	});
+}
+
+exports.union = combineMultiplicitiesWith(Math.max);
+
+exports.intersection = combineMultiplicitiesWith(Math.min);
+
+exports.sum = combineMultiplicitiesWith(function(a, b) { return a + b; });
