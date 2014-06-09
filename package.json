@@ -1,6 +1,6 @@
 {
 	"name": "mori-bag",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "Efficient immutable bags (multisets) made with mori",
 	"main": "lib.js",
 	"scripts": {
